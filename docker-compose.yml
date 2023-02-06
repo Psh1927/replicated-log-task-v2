@@ -1,0 +1,27 @@
+services:
+  master:
+    hostname: master
+    build: master/
+    ports:
+      - "8080:8080"
+    networks:
+      - cluster-network
+
+  secondary-1:
+    hostname: secondary-1
+    build: secondary-1/
+    ports:
+      - "8081:8081"
+    networks:
+      - cluster-network
+
+  secondary-2:
+    hostname: secondary-2
+    build: secondary-2/
+    ports:
+      - "8082:8082"
+    networks:
+      - cluster-network
+
+networks:
+  cluster-network:
