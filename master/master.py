@@ -21,6 +21,8 @@ class CountDownLatch:
                 self.count_good_result -= 1
             if self.count == 0:
                 self.condition.notify_all()
+            if self.count_good_result == 0:
+                self.condition.notify_all()
 
     def wait(self):
         with self.condition:
